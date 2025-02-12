@@ -55,7 +55,15 @@ When you type a URL in your browser and press Enter, a fascinating journey begin
 - Compression
 - Connection pooling
 
-**TODO:** Add space and time complexity analysis for different caching strategies
+## Caching Complexity Analysis
+
+LRU Cache:
+-Time Complexity: O(1) for access (using hash maps).
+-Space Complexity: O(n) (depends on cache size).
+
+FIFO Cache:
+-Time Complexity: O(1) for access.
+-Space Complexity: O(n).
 
 ## Error Scenarios
 - **TODO:**Complete the error scenarios
