@@ -173,9 +173,76 @@ If additional resources (images, stylesheets, scripts) are needed, the browser s
 - **TODO:**Complete the error scenarios
 
 ## Security Considerations
-- **TODO:**Complete the security considerations
 
-**TODO:** Add detailed explanation of common security vulnerabilities and prevention techniques
+Web applications are vulnerable to various security threats if proper precautions are not taken. Below are common security risks in the web request process and how to mitigate them.  
+
+---
+
+### **1. Cross-Site Scripting (XSS)**  
+**Cause:**  
+- Attackers inject malicious scripts into web pages viewed by other users.  
+- This allows them to steal session cookies, deface content, or perform unauthorized actions.  
+
+**Prevention:**  
+- **Escape user input** before rendering it in HTML.  
+- Use **Content Security Policy (CSP)** to block unauthorized scripts.  
+- Sanitize input to remove malicious code.  
+
+---
+
+### **2. Cross-Site Request Forgery (CSRF)**  
+**Cause:**  
+- Attackers trick users into performing unintended actions on a site where they are authenticated (e.g., changing passwords, making transactions).  
+
+**Prevention:**  
+- Use **CSRF tokens** to verify legitimate requests.  
+- Require **re-authentication** for sensitive actions.  
+- Implement **SameSite cookies** to prevent cross-site request submissions.  
+
+---
+
+### **3. SQL Injection**  
+**Cause:**  
+- Attackers inject malicious SQL queries into input fields, allowing them to manipulate or access the database.  
+
+**Prevention:**  
+- Use **prepared statements and parameterized queries** to prevent query manipulation.  
+- Sanitize and validate user inputs.  
+- Restrict database permissions to minimize damage from an attack.  
+
+---
+
+### Importance of SSL/TLS Encryption 
+**Purpose:**  
+- Encrypts data transmitted between the client and server, preventing **Man-in-the-Middle (MITM) attacks**.  
+- Ensures data integrity and confidentiality.  
+
+**Best Practices:**  
+- Always use **HTTPS** (SSL/TLS certificates).  
+- Redirect HTTP traffic to HTTPS.  
+- Enable **HSTS (HTTP Strict Transport Security)** to enforce secure connections.  
+
+---
+
+### Input Validation & Sanitization
+**Importance:**  
+- Prevents attacks like **XSS, SQL injection, and command injection** by filtering out harmful input.  
+
+**Best Practices:**  
+- Implement **whitelisting** (allow only expected input formats).  
+- Use **server-side validation** alongside client-side checks.  
+- Remove special characters that could be used in attacks.  
+
+---
+
+###Proper Session Management
+**Risks:**  
+- Poor session handling can lead to **session hijacking, fixation, or impersonation attacks**.  
+
+**Prevention:**  
+- Use **secure, HttpOnly, and SameSite cookies**.  
+- Implement **session expiration and automatic logout** for inactive users.  
+- Regenerate session IDs after login to prevent fixation attacks.  
 
 ---
 
