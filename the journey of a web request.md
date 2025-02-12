@@ -146,20 +146,112 @@ Once generated, the response travels back through the network:
 - **Packets travel** across the internet, moving through routers, switches, and ISPs.  
 - **The browser receives the response**, reassembles packets, and processes the data.  
 
-#### **4. Browser Rendering the Response**  
-Upon receiving the response, the browser:  
-- Reads the **status code** to determine success or failure.  
-- Interprets **headers** (e.g., caching rules, content type).  
-- Displays **HTML/CSS/JavaScript** or executes required actions (e.g., redirecting, prompting a download).  
-
-If additional resources (images, stylesheets, scripts) are needed, the browser sends new requests, repeating the process.
 ## 7. Browser Processing
-- Browser receives the response
-- If HTML, begins parsing
-- Downloads additional resources (CSS, JS, images)
-- Renders the page
+Once the browser receives the HTTP response, it processes the content and renders the webpage. The steps are part of the **Critical Rendering Path (CRP)**, which prioritizes essential content for improved performance.
 
-**TODO:** Add details about browser rendering pipeline and critical rendering path
+---
+
+### **1. Receiving the Response and Parsing HTML**  
+When the browser detects an **HTML document**, it begins parsing it **line by line** to construct the **DOM (Document Object Model)**.  
+- The **DOM** represents the structure of the webpage as a tree of elements (`<html>`, `<body>`, `<div>`, etc.).  
+- If the parser encounters references to **external resources** (CSS, JS, images), it sends separate HTTP requests to fetch them.  
+
+**Example:**  
+```html
+<html>
+  <body>
+    <h1>Welcome</h1>
+    <img src="image.jpg" />
+    <script src="script.js"></script>
+  </body>
+</html>
+```
+While parsing this, the browser detects `image.jpg` and `script.js` and starts downloading them asynchronously.
+
+---
+
+### **2. Downloading and Processing Additional Resources**  
+As the browser parses the HTML, it requests additional resources:  
+
+#### **CSS Parsing and the CSSOM (CSS Object Model)**  
+- The browser downloads external **CSS stylesheets** and inline styles.  
+- It then constructs the **CSSOM (CSS Object Model)**, which defines how styles apply to elements.  
+- Until the CSSOM is ready, the page **cannot be rendered** (since styles affect layout).  
+
+**Example CSS:**  
+```css
+h1 { color: blue; }
+img { width: 100px; }
+```
+Creates the CSSOM:  
+```
+h1 → color: blue
+img → width: 100px
+```
+
+#### **JavaScript Execution and its Effect on Rendering**  
+- JavaScript can modify the DOM and CSSOM, so by default, the browser **pauses HTML parsing** when encountering a `<script>` tag.  
+- To **prevent blocking**, scripts should use:  
+  - **`defer`** – Loads scripts in order but executes them after parsing the HTML.  
+  - **`async`** – Loads scripts in parallel and executes them as soon as they are ready.  
+
+**Example:**  
+```html
+<script src="script.js" defer></script>
+```
+Ensures `script.js` runs only after the DOM is fully built.
+
+---
+
+### **3. Constructing the Render Tree**  
+Once the **DOM** and **CSSOM** are built, the browser combines them into the **Render Tree**, which:  
+- Excludes elements that don’t affect visual output (`display: none`).  
+- Determines how elements should appear based on CSS rules.  
+
+Example Render Tree for:  
+```html
+<body>
+  <h1>Welcome</h1>
+  <p hidden>Hidden text</p>
+</body>
+```
+Would be:  
+```
+<body>
+ ├── <h1> (visible)
+```
+(The `<p>` is excluded since it's hidden.)
+
+---
+
+### **4. Layout (Reflow) – Calculating Element Positions**  
+The **layout stage** (or **reflow**) calculates:  
+- The **size and position** of elements based on styles and screen size.  
+- **Relative positions**, considering margins, padding, and flex/grid layouts.  
+
+If a script or CSS change affects the layout, the browser must recalculate it, which can impact performance.
+
+---
+
+### **5. Painting – Rendering Pixels on the Screen**  
+- After layout is determined, the browser converts elements into **actual pixels** (painting).  
+- This process applies colors, images, shadows, and borders.  
+
+---
+
+### **6. Compositing and Display**  
+Since modern browsers **render pages in layers** (like Photoshop), they optimize **compositing**:  
+- Elements are split into **separate layers** (e.g., animations, fixed headers).  
+- The GPU merges these layers efficiently for a **smooth visual experience**.  
+
+---
+
+Additionally to optimize speed, browsers **prioritize visible content first** using techniques like:  
+- **Lazy Loading (`loading="lazy"`)** – Loads images only when they appear in the viewport.  
+- **Minimizing Render-Blocking Resources** – Using `defer` for scripts and `media="print"` for non-critical CSS.  
+- **Optimized Paint Timing** – Prioritizing above-the-fold content to ensure quick page rendering.  
+
+
 
 ## Common Optimization Techniques
 - Content Delivery Networks (CDNs)
