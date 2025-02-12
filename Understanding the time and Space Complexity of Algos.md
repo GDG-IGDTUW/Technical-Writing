@@ -98,7 +98,8 @@ public static int fib(int n) {
 
 **Space Complexity:** `O(n)`
 - The recursion stack has a depth of n as the function calls reach to the base case.
-
+- An example representation:
+  ![Image](https://github.com/user-attachments/assets/107309a2-4d7e-4f92-8788-5936cccd1dda)
 
 15. Fibonacci Sequence (Dynamic Programming)
 Description: Calculates the nth Fibonacci number using a bottom-up approach with memoization.
