@@ -74,13 +74,13 @@ Space Complexity:
 
 13. Fibonacci Sequence (Recursive)
     
-**Description:** Calculates the nth Fibonacci number using recursive calls. This results in Recurrence relation as:
+**Description:** Calculates the nth Fibonacci number using recursive calls. This results in Recurrence relation:
 - F(n)=F(n-1) + F(n-2)
 
 **Time Complexity:** `O(2^n)`
 - Each Fibonacci number is calculated using 2 recursive calls.
 - This creates an exponential number of function calls.
-- The recurrence tree has a depth of n and and at each level the number of calls double, leading to exponential time complexity.
+- The recurrence tree has a depth of n and at each level, the number of calls double, leading to exponential time complexity.
   
 ```java
 public static int fib(int n) {
@@ -103,13 +103,14 @@ public static int fib(int n) {
 
 
 15. Fibonacci Sequence (Dynamic Programming)
+    
 **Description:** Calculates the nth Fibonacci number using a bottom-up approach with memoization.
 
 **Time Complexity:** `O(n)` 
-- Each fibonacci number is calculated only once and stored in memory for re-use to avoid redundant calculations.
+- Each Fibonacci number is calculated only once and stored in memory for re-use to avoid redundant calculations.
   
 **Space Complexity:**`O(n)`
-- An array of size n+1(since 0 based indexing) used to store the values.
+- An array of size n+1 (since 0 based indexing) used to store the values.
 
 ```java
 public static int fib_memo(int n) {
