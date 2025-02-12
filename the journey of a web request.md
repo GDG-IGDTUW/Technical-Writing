@@ -113,10 +113,46 @@ Security response headers protect against client-side vulnerabilities. They enfo
 - Response is generated
 
 ## 6. Response Journey
-- Server sends HTTP response
-- **TODO:**Complete the response journey
-- Data travels back through the network
+### **HTTP Response Journey**  
 
+Once the server receives an HTTP request, it processes it and sends back a structured response. This journey involves several steps:  
+
+#### **1. Server Processing the Request**  
+The server receives the request, extracts relevant details (method, URL, headers, and body), and determines how to respond.  
+- If the request targets a static file (e.g., HTML, CSS), the server retrieves it from storage.  
+- If it requires database access, the server queries the database and processes the data.  
+- If it involves business logic (e.g., user authentication), the server executes the required functions.  
+
+#### **2. Generating the HTTP Response**  
+The server constructs a response containing:  
+- **Status Line** – Includes the HTTP version, status code (e.g., `200 OK`, `404 Not Found`), and status message.  
+- **Headers** – Metadata about the response (e.g., `Content-Type`, `Content-Length`, `Set-Cookie`).  
+- **Body (if applicable)** – The actual content being sent, such as an HTML page, JSON data, or a file.  
+
+**Example Response:**  
+```
+HTTP/1.1 200 OK  
+Content-Type: text/html  
+Content-Length: 1024  
+
+<html>
+  <body>Welcome to the website!</body>
+</html>
+```
+
+#### **3. Data Transmission Back to the Browser**  
+Once generated, the response travels back through the network:  
+- **Server sends the response** over **TCP/IP** using the same connection established by the request.  
+- **Packets travel** across the internet, moving through routers, switches, and ISPs.  
+- **The browser receives the response**, reassembles packets, and processes the data.  
+
+#### **4. Browser Rendering the Response**  
+Upon receiving the response, the browser:  
+- Reads the **status code** to determine success or failure.  
+- Interprets **headers** (e.g., caching rules, content type).  
+- Displays **HTML/CSS/JavaScript** or executes required actions (e.g., redirecting, prompting a download).  
+
+If additional resources (images, stylesheets, scripts) are needed, the browser sends new requests, repeating the process.
 ## 7. Browser Processing
 - Browser receives the response
 - If HTML, begins parsing
