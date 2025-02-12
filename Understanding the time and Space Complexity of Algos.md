@@ -73,12 +73,15 @@ Space Complexity:
 
 
 13. Fibonacci Sequence (Recursive)
+    
 **Description:** Calculates the nth Fibonacci number using recursive calls. This results in Recurrence relation as:
-F(n)=F(n-1) + F(n-2)
+- F(n)=F(n-1) + F(n-2)
+
 **Time Complexity:** `O(2^n)`
 - Each Fibonacci number is calculated using 2 recursive calls.
 - This creates an exponential number of function calls.
 - The recurrence tree has a depth of n and and at each level the number of calls double, leading to exponential time complexity.
+  
 ```java
 public static int fib(int n) {
 		if(n==0) {
@@ -92,7 +95,8 @@ public static int fib(int n) {
 		return fib(n-1)+fib(n-2);
   }
 ```
-**Space Complexity:** O(n)
+
+**Space Complexity:** `O(n)`
 - The recursion stack has a depth of n as the function calls reach to the base case.
 
 
