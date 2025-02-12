@@ -101,13 +101,35 @@ public static int fib(int n) {
 - An example representation:
   ![Image](https://github.com/user-attachments/assets/107309a2-4d7e-4f92-8788-5936cccd1dda)
 
+
 15. Fibonacci Sequence (Dynamic Programming)
-Description: Calculates the nth Fibonacci number using a bottom-up approach with memoization.
-Time Complexity: 
-Space Complexity:
+**Description:** Calculates the nth Fibonacci number using a bottom-up approach with memoization.
 
+**Time Complexity:** `O(n)` 
+- Each fibonacci number is calculated only once and stored in memory for re-use to avoid redundant calculations.
+  
+**Space Complexity:**`O(n)`
+- An array of size n+1(since 0 based indexing) used to store the values.
 
-16. Matrix Multiplication (Naive)
+```java
+public static int fib_memo(int n) {
+		int memo[]=new int[n+1];
+		memo[0]=0;
+		memo[1]=1;
+		
+		if(n==0 || n==1) {
+			return n;
+		}
+		
+		for(int i=2;i<memo.length;i++) {
+			memo[i]=memo[i-1]+memo[i-2];
+		}
+		
+		return memo[n];
+}
+```
+
+17. Matrix Multiplication (Naive)
 Description: Multiplies two matrices using the standard row-column multiplication method.
 Time Complexity: 
 Space Complexity:
