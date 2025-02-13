@@ -220,7 +220,25 @@ Example: `/search?query=term&category=books&page=1`
 - Compression
 - Connection pooling
 
-**TODO:** Add space and time complexity analysis for different caching strategies
+## Caching Strategies: Space and Time Complexity Analysis
+
+1. Browser Cache
+-Time Complexity: O(1) for lookup, O(n) for cache replacement.
+-Space Complexity: O(n), where n is the number of cached entries.
+-Trade-offs: High speed, but limited by local storage size.
+-Best Use Case: Frequently accessed static assets (CSS, JS, images).
+
+2. Server-Side Cache
+-Time Complexity: O(1) for lookup, O(n) for eviction.
+-Space Complexity: O(n), depending on allocated storage.
+-Trade-offs: Reduces backend load, but must be carefully invalidated.
+-Best Use Case: Dynamic content like API responses and database query results.
+
+3. CDN Cache
+-Time Complexity: O(1) for cache hit, O(n) for cache population.
+-Space Complexity: O(n), based on network storage capacity.
+-Trade-offs: Highly scalable, but propagation delays can occur.
+-Best Use Case: Global distribution of static and media content.
 
 ## Error Scenarios
 - **TODO:**Complete the error scenarios
