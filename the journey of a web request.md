@@ -436,6 +436,98 @@ Implement multi-factor authentication (MFA) for added security.
 By implementing these security measures, web applications can significantly reduce their exposure to common attacks, protecting both users and system data from exploitation.
 
 
+
 ---
+
+# **TCP Connection, Window Sizing, and Congestion Control (AIMD)**  
+
+TCP (Transmission Control Protocol) ensures reliable data transfer over networks by using **window sizing** and **congestion control mechanisms**.  
+
+## **1. TCP Window Sizing**  
+TCP manages data flow using a **window-based mechanism** to optimize performance while preventing congestion.  
+
+### **Key Components of TCP Windowing**  
+
+1. **Advertised Window (`rwnd` - Receiver Window Size)**  
+   - The **receiver** advertises how much data it can accept before becoming overwhelmed.  
+   -  **Example:** A warehouse tells a supplier how many boxes it can store before running out of space.  
+
+2. **Congestion Window (`cwnd` - Sender’s Window Size)**  
+   - The **sender** determines how much data it can send before waiting for an acknowledgment (ACK).  
+   -  **Example:** If a road has multiple lanes, `cwnd` represents how many lanes are open for sending data.  
+
+3. **Effective Window Size**  
+   - The **actual data flow** allowed at a given moment.  
+   - **Formula:**  
+     ```plaintext
+     Effective Window = min(rwnd, cwnd)
+     ```  
+   -  **Example:** If a truck (sender) wants to deliver 100 boxes but the warehouse (receiver) can only store 50, the effective window size is **50**.  
+
+## **2. TCP Congestion Control (AIMD)**  
+
+TCP prevents **network congestion** using the **AIMD (Additive Increase Multiplicative Decrease)** algorithm. This adjusts data flow dynamically to avoid congestion collapse.  
+
+### **How AIMD Works (Real-World Examples)**  
+
+1. **Additive Increase (AI) – Slow, Gradual Growth**  
+   - When no congestion is detected, TCP **increases `cwnd` linearly** over time.  
+   -  **Example:** If traffic on a highway is light, one additional lane is opened every minute.  
+   - **Formula:**  
+     ```plaintext
+     cwnd = cwnd + 1 (per RTT)
+     ```  
+
+2. **Multiplicative Decrease (MD) – Halving Speed During Congestion**  
+   - If congestion (packet loss) occurs, TCP **reduces `cwnd` by half** to ease network load.  
+   -  **Example:** If a traffic jam occurs, half of the lanes are closed to clear congestion.  
+   - **Formula:**  
+     ```plaintext
+     cwnd = cwnd / 2
+     ```  
+
+
+## **3. AIMD in Action: Managing Data Flow & Congestion**  
+
+- **Slow Start Phase:**  
+  - TCP begins with a **small `cwnd`** and **doubles it** (`cwnd * 2` per RTT) until reaching a threshold (`ssthresh`).  
+  -  **Example:** A new road starts with few lanes. More lanes are added as traffic increases.  
+
+- **Congestion Avoidance:**  
+  - Once `ssthresh` is reached, TCP **switches to AIMD**, increasing `cwnd` **linearly** to prevent sudden congestion.  
+  -  **Example:** If traffic is steady, **one lane is added per minute** instead of many at once.  
+
+- **Congestion Detection & Recovery:**  
+  - If **packet loss occurs**, TCP **cuts `cwnd` in half** and restarts the increase.  
+  -  **Example:** If a highway is overcrowded, some lanes are **temporarily closed** to manage congestion.  
+
+- **Fairness & Stability:**  
+  - AIMD ensures **fair bandwidth sharing** among users.  
+  - It **prevents congestion collapse** by dynamically adjusting transmission speed.
+      
+
+## **4. Visual Representation of TCP AIMD**  
+
+### **Diagram: TCP AIMD Behavior**  
+
+```plaintext
+           |        Congestion Window (cwnd)
+           |
+           |          /\    /\    /\    /\    (Additive Increase)
+           |         /  \  /  \  /  \  /  \
+           |        /    \/    \/    \/    \
+           |       /                     \  (Packet Loss Detected)
+           |      /                       \ (Multiplicative Decrease)
+           |_____/________________________\_____________________
+           
+          Time →→
+```
+
+🔹 **Upward Slope:** Represents **Additive Increase (AI)**, where `cwnd` grows gradually.  
+🔹 **Sudden Drop:** Represents **Multiplicative Decrease (MD)**, where `cwnd` is halved due to congestion.  
+
+---
+
+
 
 This document provides a high-level overview of how web requests work. Several sections marked with **TODO** need additional details and technical depth. Contributions are welcome!
