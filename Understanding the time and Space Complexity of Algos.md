@@ -36,14 +36,31 @@ Description: Repeatedly steps through the list, compares adjacent elements and s
 
 4. Selection Sort
 Description: Divides the input list into a sorted and an unsorted region, repeatedly selects the smallest element from the unsorted region to add to the sorted region.
+
 Time Complexity: 
-Space Complexity:
+
+|**Case** | **Time Complexity** | **Description** |
+|----|---------------|-----------|
+|**Best Case**| O(N^2)| Even if the array is sorted, it still scans the entire array for the minimum element in each pass.|
+|**Average Case**| O(N^2)| Always goes through (𝑛 − 1) iterations, making it quadratic.|
+|**Worst Case** | O(N^2)| Occurs when the array is sorted in reverse order; still performs the same number of comparisons and swaps.|
+
+Space Complexity: O(1) 
+- It is an in-place sorting algorithm, using only a constant amount of extra space.
 
 
 5. Insertion Sort
 Description: Builds the final sorted array one item at a time, by repeatedly inserting a new element into the sorted portion of the array.
 Time Complexity: 
-Space Complexity:
+
+|**Case** | **Time Complexity** | **Description** |
+|----|---------------|-----------|
+|**Best Case**| O(N)| Occurs when the array is already sorted, requiring only n−1 comparisons and no swaps.|
+|**Average Case**| O(N^2)| On average, half of the elements are shifted for each insertion.|
+|**Worst Case** | O(N^2)| Occurs when the array is sorted in reverse order, requiring the maximum number of shifts.|
+
+Space Complexity: O(1)
+- It sorts the array in place, needing no extra space.
 
 
 6. Merge Sort
@@ -70,21 +87,6 @@ Space Complexity:
 
 7. Quick Sort
 Description: Selects a 'pivot' element and partitions the other elements into two sub-arrays according to whether they are less than or greater than the pivot.
-Quick Sort is a **divide-and-conquer sorting algorithm** that selects a pivot element and partitions the array into two subarrays:  
-- One with elements smaller than the pivot  
-- Another with elements greater than the pivot
-  
-It then recursively sorts both subarrays.
-
-**Time Complexity:**
-- **Best Case:** \(O(n log n)\) → Occurs when the pivot divides the array into two nearly equal halves, leading to balanced recursion.
-- **Average Case:** \(O(n log n)\) → On average, random pivots tend to create balanced partitions.
-- **Worst Case:** \(O(n^2)\) → Occurs when the pivot always picks the smallest or largest element, leading to highly unbalanced partitions.
-
-**Space Complexity:**
-- **In-place implementation:** \(O(log n)\) due to recursive calls in the best and average cases.
-- **Worst Case:** \(O(n)\) if recursion depth reaches \(n\) in an unbalanced partition.
-- **Extra space (if using additional arrays):** \(O(n)\), but this is not typical in in-place Quick Sort.
 
 **Working Principle**
 - Divide: A pivot element is chosen, and the array is partitioned such that elements smaller than the pivot are placed on the left and larger elements on the right.
@@ -126,160 +128,90 @@ Merge Sort and Quick Sort are two classic examples of **Divide and Conquer** alg
 
 
 8. Breadth-First Search (BFS)
-   
 Description: Explores a graph level by level, visiting all neighbors of a node before moving to the next level.
-BFS is a **graph traversal algorithm** that explores nodes **level by level**, making it suitable for shortest path problems in an unweighted graph.  
-It uses a **queue** to keep track of nodes to be visited.
+Time Complexity: 
+Space Complexity:
 
-**Time Complexity:**
-- **Adjacency List Representation:** \(O(V + E)\)  
-  - Each vertex is processed once, and each edge is explored once.
-- **Adjacency Matrix Representation:** \(O(V^2)\)  
-  - Checking all adjacent vertices takes \(O(V)\) per vertex.
-
-**Space Complexity:**
-- **Queue:** \(O(V)\) → In the worst case, all vertices at the largest level are stored.
-- **Visited Array:** \(O(V)\) → Stores visited nodes.
-- **Adjacency List Storage:** \(O(V + E)\)
-- **Total:** \(O(V + E)\) for adjacency list representation.
-
-**Visualization of BFS Traversal:**
-
-![image](https://github.com/user-attachments/assets/78aeb7d2-289d-4668-a709-ed523c5e382a)
-
-![image](https://github.com/user-attachments/assets/8f1f6b1f-16b5-4831-b705-d383362cd1fa)
 
 9. Depth-First Search (DFS)
-    
-Description: Explores a graph by going as deep as possible along each branch before backtracking. 
-DFS is a **graph traversal algorithm** that explores as deeply as possible before backtracking. It is used in applications like **topological sorting, cycle detection, and pathfinding**.  
-It can be implemented **recursively** (using the call stack) or **iteratively** (using an explicit stack).
-
-**Time Complexity:**
-- **Adjacency List Representation:** \(O(V + E)\)  
-  - Each vertex and edge is visited once.
-- **Adjacency Matrix Representation:** \(O(V^2)\)  
-  - Checking adjacency takes \(O(V)\) per vertex.
-
-**Space Complexity:**
-- **Recursive Call Stack:**
-  - **Worst case:** \(O(V)\) → If the graph is skewed like a linked list.
-  - **Best case:** \(O(\log V)\) → If the graph is balanced.
-- **Visited Array:** \(O(V)\)
-- **Adjacency List Storage:** \(O(V + E)\)
-- **Total:** \(O(V + E)\), with additional \(O(V)\) recursion stack in the worst case.
-
-**Visualization of DFS Traversal:**
-
-![image](https://github.com/user-attachments/assets/78aeb7d2-289d-4668-a709-ed523c5e382a)
-
-![image](https://github.com/user-attachments/assets/0ddbf998-9530-4425-ae1b-cc50c9c967c6)
-
-
-11. Dijkstra's Algorithm
-Description: Finds the shortest paths between nodes in a graph with non-negative edge weights.
-
-Working Principle:
-Uses a priority queue (min-heap) to iteratively pick the node with the smallest known distance, updating distances to its neighbors until all shortest paths are found.
-
+Description: Explores a graph by going as deep as possible along each branch before backtracking.
 Time Complexity: 
-Best Case: O(V log V)
-Average Case: O((V + E) log V)
-Worst Case: O(V^2)
-Space Complexity: O(V + E)
+Space Complexity:
 
+
+10. Dijkstra's Algorithm
+Description: Finds the shortest paths between nodes in a graph with non-negative edge weights.
+Time Complexity: 
+Space Complexity:
 
 
 11. Floyd-Warshall Algorithm
 Description: Finds shortest paths between all pairs of vertices in a weighted graph.
-
-Working Principle:
-Uses dynamic programming to iteratively update shortest path distances by checking if an intermediate vertex provides a shorter route between two nodes.
-
 Time Complexity: 
-Best Case: O(V^3)
-Average Case: O(V^3)
-Worst Case: O(V^3)
-Space Complexity: O(V^2)
+Space Complexity:
 
 
 12. Knapsack Problem (Dynamic Programming)
 Description: Determines the most valuable combination of items that can be carried in a knapsack of limited weight.
-
-Working Principle: Uses a 2D array to store the maximum value obtainable for each item and weight combination, iterating through possible item choices to determine the optimal selection.
-
-Time Complexity: 
-Best Case: O(nW)
-Average Case: O(nW)
-Worst Case: O(nW)
-Space Complexity: O(nW)
-
-
-13. Fibonacci Sequence (Recursive)
-
-**Description:** Calculates the nth Fibonacci number using recursive calls. This results in Recurrence relation:
-- F(n)=F(n-1) + F(n-2)
-
-**Time Complexity:** O(2^n)
-- Each Fibonacci number is calculated using 2 recursive calls.
-- This creates an exponential number of function calls.
-- The recurrence tree has a depth of n and at each level, the number of calls doubles, leading to exponential time complexity.
-  
-```java
-public static int fib(int n) {
-		if(n==0) {
-			return 0;
-		}
-		
-		if(n==1) {
-			return 1;
-		}
-		
-		return fib(n-1)+fib(n-2);
-  }
-```
-
-**Space Complexity:** O(n)
-- The recursion stack has a depth of n as the function calls reach to the base case.
-- An example representation:
-  ![Image](https://github.com/user-attachments/assets/107309a2-4d7e-4f92-8788-5936cccd1dda)
-
-
-14. Fibonacci Sequence (Dynamic Programming)
-
-    
-**Description:** Calculates the nth Fibonacci number using a bottom-up approach with memoization.
-
-**Time Complexity:** O(n) 
-- Each Fibonacci number is calculated only once and stored in memory for re-use to avoid redundant calculations.
-  
-**Space Complexity:**O(n)
-- An array of size n+1 (since 0 based indexing) used to store the values.
-
-```java
-public static int fib_memo(int n) {
-		int memo[]=new int[n+1];
-		memo[0]=0;
-		memo[1]=1;
-		
-		if(n==0 || n==1) {
-			return n;
-		}
-		
-		for(int i=2;i<memo.length;i++) {
-			memo[i]=memo[i-1]+memo[i-2];
-		}
-		
-		return memo[n];
-}
-```
-
-
-15. Matrix Multiplication (Naive)
-Description: Multiplies two matrices using the standard row-column multiplication method.
 Time Complexity: 
 Space Complexity:
 
+
+13. Fibonacci Sequence (Recursive)
+Description: Calculates the nth Fibonacci number using recursive calls.
+Time Complexity: 
+Space Complexity:
+
+
+14. Fibonacci Sequence (Dynamic Programming)
+Description: Calculates the nth Fibonacci number using a bottom-up approach with memoization.
+Time Complexity: 
+Space Complexity:
+
+
+15. Matrix Multiplication (Naive)
+Description: Naïve Matrix Multiplication follows the standard row-column method to multiply two matrices. 
+**Time Complexity:**
+- Best-case Complexity: O(mnp)
+- Worst-case Complexity: O(mnp)
+
+Since each element requires n multiplications and additions, the complexity remains O(mnp) in all cases.
+
+**Space Complexity:**
+- The space required to store the resulting matrix C is O(mp).
+
+If auxiliary storage is considered, additional space is minimal, so the space complexity remains O(mp).
+
+**Applications**
+- Computer graphics transformations
+- Scientific computing
+- Machine learning and deep learning computations
+- Engineering simulations
+
+**Limitations**
+1. Inefficiency: The naive approach is slow for large matrices due to its O(mnp) complexity.
+2. Better Alternatives: Strassen’s Algorithm (O(n^{2.81})) and more optimized methods like the Coppersmith-Winograd Algorithm are used for faster computations.
+
+---
+## Time Complexity Table
+
+| Algorithm | Best Case | Average Case | Worst Case | Explanation |
+|-----------|-----------|--------------|------------|-------------|
+| Linear Search |	O(1) |	O(n) |	O(n) |	Best case: target found at first index. Worst case: last index or not found. |
+| Binary Search |	O(1) |	O(log n) |	O(log n) | Best case: target found in the middle. Worst case: search space halves repeatedly. |
+|-----------|-----------|--------------|------------|-------------|
+| Bubble Sort |	O(n) |	O(n²) |	O(n²) |	Best case: already sorted array, single pass. Worst case: full passes with swaps. |
+| Insertion Sort |	O(n) |	O(n²) |	O(n²) |	Best case: nearly sorted array. Worst case: shifting elements for each insertion. |
+| Selection Sort |	O(n²) |	O(n²) |	O(n²) |	Always makes comparisons for each selection, no best-case improvement. |
+| Merge Sort |	O(n log n) |	O(n log n) |	O(n log n) | Recursively splits and merges arrays. |
+| Quicksort |	O(n log n) |	O(n log n) |	O(n²) |	Worst case: poor pivot selection, causing unbalanced partitions. |
+| Heap Sort |	O(n log n) |	O(n log n) |	O(n log n) |	Always maintains a balanced heap structure. |
+|-----------|-----------|--------------|------------|-------------|
+| DFS (Graph Traversal) |	O(1) |	O(V + E) |	O(V + E) |	Best case: goal node found immediately. Worst case: visits all vertices and edges. |
+| BFS (Graph Traversal) |	O(1) |	O(V + E) |	O(V + E) |	Similar to DFS but processes nodes level by level. |
+|-----------|-----------|--------------|------------|-------------|
+
+---
 
 Note: For each algorithm, consider:
 - Best case scenario
