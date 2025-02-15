@@ -435,8 +435,6 @@ Implement multi-factor authentication (MFA) for added security.
 
 By implementing these security measures, web applications can significantly reduce their exposure to common attacks, protecting both users and system data from exploitation.
 
-
-
 ---
 
 # **TCP Connection, Window Sizing, and Congestion Control (AIMD)**  
@@ -484,9 +482,8 @@ TCP prevents **network congestion** using the **AIMD (Additive Increase Multipli
    - **Formula:**  
      ```plaintext
      cwnd = cwnd / 2
-     ```  
-
-
+     ```
+     
 ## **3. AIMD in Action: Managing Data Flow & Congestion**  
 
 - **Slow Start Phase:**  
@@ -505,7 +502,6 @@ TCP prevents **network congestion** using the **AIMD (Additive Increase Multipli
   - AIMD ensures **fair bandwidth sharing** among users.  
   - It **prevents congestion collapse** by dynamically adjusting transmission speed.
       
-
 ## **4. Visual Representation of TCP AIMD**  
 
 ### **Diagram: TCP AIMD Behavior**  
