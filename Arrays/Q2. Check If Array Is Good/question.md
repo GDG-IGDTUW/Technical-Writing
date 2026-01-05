@@ -18,4 +18,4 @@ Tests frequency-based reasoning.
 ## Acceptance Criteria
 - Correct validation  
 - Handles missing or extra elements  
-- Works for unordered input  
+- Works for unordered input
