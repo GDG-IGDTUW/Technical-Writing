@@ -18,4 +18,4 @@ Combines validation + aggregation.
 - Correct maximum sum  
 - Handles negative values  
 - Time Complexity: O(n)  
-- Space Complexity: O(h) 
+- Space Complexity: O(h).
