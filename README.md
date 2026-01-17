@@ -47,13 +47,13 @@ Contributions are welcome to improve and expand this repository.
 
 ### Steps to Contribute:
 
-1. **Fork the Repository** 🍴  
+1. **Fork the Repository**  
    Create your own copy of the repository.
 
-2. **Clone the Repository** 🖥️  
+2. **Clone the Repository** 
    Clone your fork to your local system.
 
-3. **Create a Branch** 🌿  
+3. **Create a Branch** 
    Work on a separate branch for your additions or improvements.
 
 4. **Add Content** 📄  
