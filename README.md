@@ -102,7 +102,7 @@ This repository aims to:
 ## 🙌 Maintainer
 
 **Ananya Bajpai**  
-GitHub: [@AnanyaBajpai](https://github.com/AnanyaBajpai)
+GitHub: [@AnanyaBajpai](https://github.com/ANANYABAJPAI0)
 
 Feel free to raise issues, discussions, or suggestions for improvement.
 
