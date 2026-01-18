@@ -13,15 +13,24 @@ The repository is divided into folders, each focusing on a core interview topic.
 Each folder contains notes, examples, and/or practice problems relevant to interview preparation.
 
 - **Arrays** – Fundamental array problems and techniques
+-  **Khushi Sharma** — [@Whatkhushi](https://github.com/Whatkhushi)
 - **Stacks** – Stack concepts, applications, and problems
-- **Trees** – Tree traversals, properties, and common interview questions
+- **Mahak** — [@mahak2005](https://github.com/mahak2005)
+- **Trees** – Tree traversals, properties, and common interview questions 
+- **Anjana Rao** — [@anjanaarao](https://github.com/anjanaarao)
 - **Graphs** – Graph representations, traversals, and algorithms
+- **Shivani Jha** — [@shivani550](https://github.com/shivani550)
 - **Time and Space Complexity** – Big-O analysis and optimization concepts
+- [@AnanyaBajpai](https://github.com/ANANYABAJPAI0)
 - **Prompt Engineering** – Basics of prompt design for AI/LLM-based roles
+- [@AnanyaBajpai](https://github.com/ANANYABAJPAI0)
 - **SDLC – Development and Testing Phases** – Software Development Life Cycle concepts
+- [@AnanyaBajpai](https://github.com/ANANYABAJPAI0)
 - **DBMS** – Database concepts, normalization, SQL basics, and theory
+- **Anjana Rao** — [@anjanaarao](https://github.com/anjanaarao)
+- **Mahak** — [@mahak2005](https://github.com/mahak2005)
 - **Pandas** – Data manipulation and analysis using Pandas (Python)
-
+ **Shivani Jha** — [@shivani550](https://github.com/shivani550)
 Each folder is curated to strengthen both **theoretical understanding** and **problem-solving ability**.
 
 ---
