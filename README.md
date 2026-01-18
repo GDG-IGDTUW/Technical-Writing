@@ -13,7 +13,7 @@ The repository is divided into folders, each focusing on a core interview topic.
 Each folder contains notes, examples, and/or practice problems relevant to interview preparation.
 
 - **Arrays** – Fundamental array problems and techniques
--  **Khushi Sharma** — [@Whatkhushi](https://github.com/Whatkhushi)
+-  **Khushi** — [@Whatkhushi](https://github.com/Whatkhushi)
 - **Stacks** – Stack concepts, applications, and problems
 - **Mahak** — [@mahak2005](https://github.com/mahak2005)
 - **Trees** – Tree traversals, properties, and common interview questions 
@@ -120,7 +120,7 @@ Feel free to raise issues, discussions, or suggestions for improvement.
 ## 🤝 Collaborators
 
 - **Anjana Rao** — [@anjanaarao](https://github.com/anjanaarao)
-- **Khushi Sharma** — [@Whatkhushi](https://github.com/Whatkhushi)
+- **Khushi** — [@Whatkhushi](https://github.com/Whatkhushi)
 - **Mahak** — [@mahak2005](https://github.com/mahak2005)
 - **Shivani Jha** — [@shivani550](https://github.com/shivani550)
 
