@@ -21,13 +21,17 @@ public:
               // '..' is used to denote previous/parent directory: current directory is popped from the order stack
                 if (!order.empty())
                     order.pop();
-              // '.' denotes current directory and no changes are to be made
+            } 
+              
+                // '.' denotes current directory and no changes are to be made
               // empty space "" denotes two consecutive slashes (//) which produce no changes in a path and are ignored
-            } else if (directory != "" && directory != ".") {
+            
+            else if (directory != "" && directory != ".") {
                 order.push(directory);
             }
 
           //changing the initial to after the last element of the previous directory to find the next one
+            
             initial = index + 1;
             index = path.find('/', initial);
         }
@@ -37,7 +41,8 @@ public:
         if (last == "..") {
             if (!order.empty())
                 order.pop();
-        } else if (last != "" && last != ".") {
+        } 
+        else if (last != "" && last != ".") {
             order.push(last);
         }
 
