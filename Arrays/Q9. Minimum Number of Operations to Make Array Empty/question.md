@@ -1,22 +1,31 @@
-# Issue 9: Minimum Number of Operations to Make Array Empty
+import java.util.HashMap;
+import java.util.Map;
 
-**Difficulty:** Medium  
-**Tags:** arrays, greedy  
+public class MinimumOperationsToEmptyArray {
 
-## Problem Reference
-**Title:** Minimum Number of Operations to Make Array Empty  
-**Platform:** LeetCode  
-**Link:** https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty/
+    public static int minOperations(int[] nums) {
+        Map<Integer, Integer> freq = new HashMap<>();
 
-## Concept to Read
-https://www.geeksforgeeks.org/hashmap-in-java/
+        for (int num : nums) {
+            freq.put(num, freq.getOrDefault(num, 0) + 1);
+        }
 
-## Issue Description
-You can remove either two or three equal elements in one operation.
-Determine the minimum number of operations required to remove all elements.
-If it is impossible, return -1.
+        int operations = 0;
 
-## Acceptance Criteria
-- Correct frequency handling  
-- Greedy grouping logic  
-- Impossible cases handled  
+        for (int count : freq.values()) {
+            if (count == 1) {
+                return -1;
+            }
+
+            if (count % 3 == 0) {
+                operations += count / 3;
+            } else if (count % 3 == 1) {
+                operations += (count - 4) / 3 + 2;
+            } else {
+                operations += count / 3 + 1;
+            }
+        }
+
+        return operations;
+    }
+}
