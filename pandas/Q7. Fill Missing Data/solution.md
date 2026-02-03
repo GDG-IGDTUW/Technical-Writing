@@ -62,3 +62,4 @@ products = fillMissingValues(products)
 print("\nAfter filling missing values:")
 print(products)
 ```
+<img width="1908" height="860" alt="image" src="https://github.com/user-attachments/assets/368dbba6-2e0b-4182-90f9-ffde059b995a" />
