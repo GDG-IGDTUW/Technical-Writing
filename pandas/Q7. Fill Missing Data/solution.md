@@ -5,7 +5,9 @@
 Given a Pandas DataFrame products with the following columns:
 
 Name (object)
+
 Quantity (int)
+
 Price (int)
 
 Some values in the quantity column are missing (None / NaN).
@@ -62,4 +64,5 @@ products = fillMissingValues(products)
 print("\nAfter filling missing values:")
 print(products)
 ```
+### Acceptance Screenshot
 <img width="1908" height="860" alt="image" src="https://github.com/user-attachments/assets/368dbba6-2e0b-4182-90f9-ffde059b995a" />
