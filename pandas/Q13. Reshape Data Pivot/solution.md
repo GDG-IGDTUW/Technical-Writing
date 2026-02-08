@@ -17,10 +17,10 @@ Use the `.pivot()` method to reshape the DataFrame from a long format to a wide 
 ```python
 import pandas as pd
 def pivotTable(weather: pd.DataFrame) -> pd.DataFrame:
-    return weather.pivot(index='city', columns='month', values='temperature')
+    return weather.pivot(index='month', columns='city', values='temperature')
 ```
 
 Explanation
-- Index: The city column becomes the row labels.
-- Columns: The month column provides the new headers.
-- Values: The temperature data fills the intersection of the new rows and columns.
+- Index: The month column becomes the row labels.
+- Columns: The city column provides the new headers.
+- Values: The temperature values fill the table at the intersection of each month and city.
