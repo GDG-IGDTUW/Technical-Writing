@@ -1,0 +1,45 @@
+	What is Time Complexity?
+Let us dispel a common misconception - Time complexity is not the time it takes for the computer to run/execute the code. Because the time taken to run a code depends on the configuration of the machine :- For instance, an old Windows machine night take 0.5 second to run the code while a new MacBook will only take 0.1 sec. 
+
+	Definition of Time Complexity and Space Complexity 
+Time Complexity 
+Time complexity is defined as the rate at which the time taken increases w.r.t. input size. We measured this increase (slope) to test the efficiency of the code.
+
+Space Complexity 
+Similarly, space Complexity is the memory space that your program takes. Just like time complexity, we do not measure it in MB or KB. We used standard notations to measure space Complexity.
+
+	Why is it important?
+The efficiency of a code is judged on the basis of two metrics : Time Complexity and Space Complexity. We used Big O notation to check if the code is efficient enough to analyse large-scale data. As an engineer, we do not build systems for one person but to scale for millions of people; we need to consider the worst case scenario to enhance user experience.
+
+	Asymptotic notations to measure time complexities are :-
+🔹 Big-O Notation — This represents the upper bound on the growth of the function f(n). It tells us the maximum time that an algorithm takes on an input size in the worst-case scenario.
+🔹 Big-Ω Notation — This represents the minimum time that an algorithm takes on an input size of n . In other words, Big-Ω Notation represents the best-case performance. The algorithm takes at least this much time asymptotically.  
+🔹 Big-Θ Notation — Big-Θ (written Θ(g(n))) provides a tight bound by combining both upper and lower bounds.. It describes the exact growth rate bounding both the upper bound and the lower bound.
+> Rules for computing the Time Complexity 
+1. Consider the worst-case scenario : while building scalable software, we must consider the worst-case scenario
+2. Avoid constants – avoid constants because they become negligible when the input size is very large (like 10^8). For instance, if the code takes 3N operations and N is equal to 10^8, then there is not much difference if we keep the constants.
+3. Avoid lower order values – If the program takes O(N^2+N) operations, then N becomes negligible in comparison to N^2. Therefore, we simply write the time complexity as Big O (N^2).
+> Common time complexities
+1. O(1) (Constant Time) : assigning values to the variables 
+2. O(N) (Linear time) : single loop (for/while) running from ) to N takes linear time complexity Big O(N).
+3. O(N^2) : Nested loops that run for NxN times.
+4. O(log n) : An algorithm that repeatedly halves the problem size at each step will take about log₂(n) steps. One of the most common examples is Binary search on a sorted array.
+
+	How space complexity is affected by variables, data structures, and recursion calls
+• Variables : uses fixed amount of space
+• Data structures : space grows with the amount of data stored
+• Recursion calls : adds extra memory for each call on the stack. Each recursive call reserves space until it returns.
+
+	Real-world scenarios where time and space trade-offs are important
+In data structures and algorithms, a time–space trade-off means improving time complexity often requires using more memory, and reducing memory use can increase runtime. 
+• Hash tables vs no extra structure: Using a hash table speeds up lookups to average-case O(1)O(1)O(1) time by using extra memory for buckets, whereas scanning an array uses minimal space but takes O(n)O(n)O(n) time. 
+• Dynamic programming vs simple recursion: Storing results in a memo table reduces time complexity significantly (often from exponential to linear) but uses additional memory to cache subproblem answers. 
+• Merge sort vs in-place sort: Merge sort runs in O(nlog?n)O(n\log n)O(nlogn) time but consumes O(n)O(n)O(n) extra space, while in-place sorts like selection sort use constant space but often have a higher time cost. 
+
+
+
+
+
+
+
+
