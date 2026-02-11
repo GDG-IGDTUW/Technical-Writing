@@ -1,18 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     bool isGood(vector<int>& nums) {
         int n = nums.size();
+        
+        // If size is less than 2, it can't be good
+        if (n < 2) return false;
+
         vector<int> freq(n, 0);
 
         for (int x : nums) {
+        // Valid numbers must be between 1 and n-1
             if (x < 1 || x >= n) return false;
             freq[x]++;
         }
 
+        // Numbers from 1 to n-2 must appear exactly once
         for (int i = 1; i <= n - 2; i++) {
             if (freq[i] != 1) return false;
         }
 
+        // Number n-1 must appear exactly twice
         return freq[n - 1] == 2;
     }
 };
+
+int main() {
+    Solution sol;
+
+    vector<int> nums = {1, 2, 3, 3};  // Example test case
+    
+    if (sol.isGood(nums))
+        cout << "Array is Good" << endl;
+    else
+        cout << "Array is Not Good" << endl;
+
+    return 0;
+}
