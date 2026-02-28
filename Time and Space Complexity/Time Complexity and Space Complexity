@@ -25,6 +25,18 @@ The efficiency of a code is judged on the basis of two metrics : Time Complexity
 3. O(N^2) : Nested loops that run for NxN times.
 4. O(log n) : An algorithm that repeatedly halves the problem size at each step will take about log₂(n) steps. One of the most common examples is Binary search on a sorted array.
 
+### Best vs Average vs Worst Case Complexity
+
+| Aspect        | Best Case                    | Average Case                     | Worst Case                         |
+|---------------|------------------------------|----------------------------------|-------------------------------------|
+| **Definition**| Minimum time taken           | Expected / typical time          | Maximum time taken                  |
+| **Input Type**| Most favorable input         | Random / normal input            | Least favorable input               |
+| **Speed**     | Fastest                      | Moderate                         | Slowest                             |
+| **Usefulness**| Rarely used alone            | Good practical estimate          | Most important for guarantees       |
+| **Example**   | Linear Search: O(1)          | Linear Search: O(n)              | Linear Search: O(n)                 |
+| **Reliability**| Low                         | Medium                           | High                                |
+
+
 	How space complexity is affected by variables, data structures, and recursion calls
 • Variables : uses fixed amount of space
 • Data structures : space grows with the amount of data stored
